@@ -238,6 +238,47 @@ bindkey -M viins "\ek" dirhistory_zle_dirhistory_up
 
 
 
+#tmux auto layout 
+# Function to set up tmux layout with alias `tla`
+tmux_layout() {
+  # Create 3 windows (starting with 0, since tmux is 0-indexed)
+  tmux new-window -t 0 -n 'Window-1'
+  tmux new-window -t 1 -n 'Window-2'
+  tmux new-window -t 2 -n 'Window-3'
+
+  # Split panes in each window
+  tmux select-window -t 0
+  tmux split-window -h  # Horizontal split
+  tmux split-window -v  # Vertical split
+  tmux select-pane -t 0  # Focus the first pane in window 0
+
+  tmux select-window -t 1
+  tmux split-window -h
+  tmux split-window -v
+
+  tmux select-window -t 2
+  tmux split-window -h
+  tmux split-window -v
+
+  # Set /mnt/fed/web2 as the directory for each pane
+  for window in 0 1 2; do
+    for pane in 0 1 2; do
+      tmux send-keys -t ${window}.${pane} 'cd /mnt/fed/web2 && clear' C-m
+    done
+  done
+
+  # Apply saved layouts (replace with your layout strings)
+  tmux select-layout -t 0 '8d8d,210x44,0,0[210x27,0,0,4,210x16,0,28{104x16,0,28,5,105x16,105,28,6}]'
+  tmux select-layout -t 1 '6520,210x44,0,0[210x28,0,0,7,210x15,0,29{104x15,0,29,8,105x15,105,29,9}]'
+  tmux select-layout -t 2 '2ecf,210x44,0,0[210x32,0,0,10,210x11,0,33{107x11,0,33,11,102x11,108,33,12}]'
+
+  # Focus the first window and the first pane
+  tmux select-window -t 0
+  tmux select-pane -t 0
+}
+
+# Create an alias for the function
+alias tla='tmux_layout'
 
 
 
