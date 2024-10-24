@@ -238,6 +238,15 @@ bindkey -M viins "\ek" dirhistory_zle_dirhistory_up
 
 
 
+# Function to restore specific tmux layouts
+tr() {
+  tmux select-layout -t 0 '8d8d,210x44,0,0[210x27,0,0,4,210x16,0,28{104x16,0,28,5,105x16,105,28,6}]'
+  tmux select-layout -t 2 '6520,210x44,0,0[210x28,0,0,7,210x15,0,29{104x15,0,29,8,105x15,105,29,9}]'
+  tmux select-layout -t 3 '2ecf,210x44,0,0[210x32,0,0,10,210x11,0,33{107x11,0,33,11,102x11,108,33,12}]'
+}
+
+
+
 #tmux auto layout 
 # Function to set up tmux layout with alias `tla`
 tmux_layout() {
