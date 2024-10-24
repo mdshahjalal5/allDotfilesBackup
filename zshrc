@@ -36,6 +36,26 @@ zle -N git_push_widget git_push
 # bindkey '^Q' git_push_widget
 
 
+# back up all the dotfiles 
+
+
+backup_dotfiles() {
+  local backup_dir="/mnt/fed/allDotfilesBackup"
+  mkdir -p "$backup_dir"
+
+  cp -r ~/.config/i3 "$backup_dir/i3"
+  cp -r ~/.tmux.conf "$backup_dir/tmux.conf"
+  cp -r ~/.zshrc "$backup_dir/zshrc"
+  cp -r ~/.config/nvim "$backup_dir/nvim"
+  cp -r /etc/keyd "$backup_dir/keyd"
+  cp -r ~/.config/yazi "$backup_dir/yazi"
+
+  echo "All dotfiles have been backed up to $backup_dir."
+}
+
+
+
+
 
 # git push from any dir without need to cd 
 git_push2() {
