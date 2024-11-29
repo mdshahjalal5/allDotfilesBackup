@@ -1,0 +1,36 @@
+# [manager]
+#
+# prepend_keymap = [
+#         # New: Open VS Code
+#   { on = [ "m", "," ], run = 'shell "code ."', desc = "Open VS Code in current directory" },
+#  # { on = "o", run = "open", desc = "Open selected files" },
+#   { on = [ "m", "b" ], run = "google-chrome-stable", desc = "Open Google Chrome" },
+# 	{ on = [ "u" ], run = "arrow -7" },
+# 	{ on = [ "i" ], run = "arrow 7" },
+#   { on = ["g", "j"], run = "cd /mnt/fed/web/L1B6UpdatedTo9", desc = "L1B6" },
+#   { on = ["g", "k"], run = "cd /mnt/fed/web/L2B1", desc = "L2B1" },
+#   { on = ["g", "l"], run = "cd /mnt/fed/web/L2B4", desc = "L2B4" },
+#   { on = ["g", "i"], run = "cd /mnt/fed/web2/1ts", desc = "Go web2 dir" },
+#   { on = ["D"], run = "remove", desc = "Trash mama selected files" },
+#   { on = ["d"], run = "remove --permanently", desc = "Permanently delete selected files" },
+# ]
+#
+
+
+[manager]
+
+prepend_keymap = [
+  # New: Open VS Code
+  { on = [ "m", "," ], run = 'shell "code ." --interactive', desc = "Open VS Code in current directory" },
+  # { on = "o", run = "open", desc = "Open selected files" },
+  { on = [ "m", "b" ], run = 'shell "google-chrome-stable" --interactive', desc = "Open Google Chrome" },
+  { on = [ "u" ], run = "arrow -7" },
+  { on = [ "i" ], run = "arrow 7" },
+  { on = ["g", "j"], run = "cd /mnt/fed/web/L1B6UpdatedTo9", desc = "L1B6" },
+  { on = ["g", "k"], run = "cd /mnt/fed/web/L2B1", desc = "L2B1" },
+  { on = ["g", "l"], run = "cd /mnt/fed/web/L2B4", desc = "L2B4" },
+  { on = ["g", "i"], run = "cd /mnt/fed/web2/1ts", desc = "Go web2 dir" },
+  { on = ["D"], run = "remove", desc = "Trash mama selected files" },
+  { on = ["d"], run = "remove --permanently", desc = "Permanently delete selected files" },
+]
+

@@ -1,0 +1,25 @@
+
+
+[colors]
+background = "#1E1E2E"      # Dark Mocha Background
+foreground = "#D9E0EE"      # Light Mocha Text Color
+cursor = "#C9A9F3"          # Cursor Color
+
+black = "#1A1B26"           # Black (Background)
+red = "#F28F89"             # Red (Error / Alerts)
+green = "#A6E3A1"           # Green (Success)
+yellow = "#F9E2AF"          # Yellow (Warnings)
+blue = "#7BCFFF"            # Blue (Information)
+magenta = "#F7A1F9"         # Magenta (Special)
+cyan = "#76E3F3"            # Cyan (Highlight)
+white = "#D9E0EE"           # White (Foreground)
+
+brightBlack = "#6E6B7F"     # Dimmed Black (Inactive Text)
+brightRed = "#F28F89"       # Bright Red (Hover, Active)
+brightGreen = "#A6E3A1"     # Bright Green
+brightYellow = "#F9E2AF"    # Bright Yellow
+brightBlue = "#7BCFFF"      # Bright Blue
+brightMagenta = "#F7A1F9"   # Bright Magenta
+brightCyan = "#76E3F3"      # Bright Cyan
+brightWhite = "#FFFFFF"     # Bright White
+
