@@ -19,8 +19,6 @@ vim.api.nvim_set_keymap("i", "<M-u>", "<C-o>o", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("i", "<M-y>", "<C-o>O", { noremap = true, silent = true })
 
 -- Map Alt-i in insert mode to run the function
-vim.api.nvim_set_keymap("i", "<M-i>", "<Cmd>lua ExitInsertAndSpace()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<M-Space>", "<Space>", { noremap = true, silent = true })
 -- copy line down like vs code
 --t: normal mode: enter will create a new line in down
 vim.api.nvim_set_keymap("n", "<CR>", "o<Esc>", { noremap = true, silent = true })
@@ -56,6 +54,7 @@ function ConsoleLogVariable()
 	local log_statement = string.format("console.log(%s, '%s', %d);", variable, file, line_number)
 	vim.api.nvim_put({ log_statement }, "l", true, true)
 end
+
 --
 --
 --
@@ -76,6 +75,7 @@ function ConsoleLogAbsolutePath()
 	local log_statement = string.format("console.log(%s, '%s', %d);", variable, file_path, line_number)
 	vim.api.nvim_put({ log_statement }, "l", true, true)
 end
+
 --
 --
 --
@@ -93,6 +93,7 @@ function CopyAbsolutePath()
 	vim.fn.setreg("+", file_path) -- Copy the path to the system clipboard
 	print("Copied path: " .. file_path)
 end
+
 --
 --
 --
@@ -187,6 +188,7 @@ function ConsoleLogVariableWithColor()
 	-- Insert the log statement below the current line
 	vim.api.nvim_put({ log_statement }, "l", true, true)
 end
+
 --t:
 vim.api.nvim_set_keymap("n", "<space>sb", ":lua colorConsoleBrowser()<CR>", { noremap = true, silent = true })
 

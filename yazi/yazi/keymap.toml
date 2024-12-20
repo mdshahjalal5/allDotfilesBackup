@@ -30,6 +30,7 @@ prepend_keymap = [
   { on = ["g", "k"], run = "cd /mnt/fed/web/L2B1", desc = "L2B1" },
   { on = ["g", "l"], run = "cd /mnt/fed/web/L2B4", desc = "L2B4" },
   { on = ["g", "i"], run = "cd /mnt/fed/web2/1ts", desc = "Go web2 dir" },
+  { on = ["g", "b"], run = "cd /mnt/fed/allDotfilesBackup", desc = "Go dotfiles backup" },
   { on = ["D"], run = "remove", desc = "Trash mama selected files" },
   { on = ["d"], run = "remove --permanently", desc = "Permanently delete selected files" },
 ]

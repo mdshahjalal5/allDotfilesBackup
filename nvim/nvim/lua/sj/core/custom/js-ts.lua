@@ -1,19 +1,7 @@
 --t: Function to insert a return statement based on the current file type
-function insert_return_statement()
-	local filetype = vim.bo.filetype -- Get the current buffer's filetype
-	-- Check the file type and insert the appropriate return statement
-	if filetype == "typescript" or filetype == "typescriptreact" then
-		vim.api.nvim_put({ "return ", "" }, "l", true, true) -- Insert 'return ' in TypeScript/TSX
-		print("Inserted return statement for TypeScript/TSX")
-	elseif filetype == "javascript" or filetype == "javascriptreact" then
-		vim.api.nvim_put({ "return ", "" }, "l", true, true) -- Insert 'return ' in JavaScript/JSX
-		print("Inserted return statement for JavaScript/JSX")
-	else
-		print("Not in a TypeScript or JavaScript file")
-	end
-end
 -- Set up the keybinding for m-r
-vim.api.nvim_set_keymap("n", "<M-r>", ":lua insert_return_statement()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<M-r>", "oreturn  <C-o>O", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<M-r>", "return  <C-o>O", { noremap = true, silent = true })
 --
 --
 --
@@ -228,10 +216,100 @@ vim.api.nvim_set_keymap(
 	":lua change_current_window_panes_to_project_root()<CR>",
 	{ noremap = true, silent = true }
 )
+--w: 29/11/2024 06:43 PM Fri GMT+6 Sharifpur, Gazipur, Dhaka
+-- Map 'sj' to run the HopChar2 command
+-- vim.api.nvim_set_keymap("n", "sj", ":HopChar1<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "i", "x", "t", "o" }, "f", "<Cmd>HopChar1<CR>", { noremap = true, silent = true })
+vim.keymap.set("i", "<S-f>", "f", { noremap = true, silent = true })
+vim.keymap.set("i", "<S-f><S-f>", "F", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "sk", ":HopChar2<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "sw", ":HopWord<CR>", { noremap = true, silent = true })
+-- vim.keymap.set({ "n", "i", "x", "t" }, "sj", "<Cmd>HopChar1<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "i", "x", "t" }, "<M-f3>", "<Cmd>HopChar1<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "sp", ":HopLine<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap({ "n", "i" }, "sl", "<Cmd>HopLineStart<CR>", { noremap = true, silent = true })
+-- vim.keymap.set({ "n", "i" }, "sl", "<Cmd>HopLineStart<CR>", { noremap = true, silent = true })
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--w: 29/11/2024 06:50 PM Fri GMT+6 Sharifpur, Gazipur, Dhaka
+--p: run git remote -v from neovim , dynamically selec the tmux pane number
+function RunGitRemoteInTmuxPane()
+	-- Prompt the user for the tmux pane number
+	local pane_number = vim.fn.input("Enter the tmux pane number: "):gsub("%s+", "")
 
--- Map 'fj' to run the HopChar2 command
-vim.api.nvim_set_keymap("n", "sj", ":HopChar1<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "sk", ":HopChar2<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "sw", ":HopWord<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "sp", ":HopLine<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "sl", ":HopLineStart<CR>", { noremap = true, silent = true })
+	if pane_number == "" then
+		vim.notify("No pane number provided. Operation canceled.", vim.log.levels.ERROR)
+		return
+	end
+
+	-- Stop any running process in the specified tmux pane
+	local stop_command = "tmux send-keys -t " .. pane_number .. " C-c"
+	vim.fn.system(stop_command)
+
+	-- Wait briefly to ensure the process is stopped
+	vim.wait(200)
+
+	-- Clear the tmux pane before running the new command
+	local clear_command = "tmux send-keys -t " .. pane_number .. " C-l"
+	vim.fn.system(clear_command)
+
+	-- Wait briefly before sending the git remote command
+	vim.wait(100)
+
+	-- Send the git remote -v command
+	local git_command = "tmux send-keys -t " .. pane_number .. ' "git remote -v" C-m'
+	vim.fn.system(git_command)
+
+	-- Notify the user
+	vim.notify("Ran `git remote -v` in tmux pane " .. pane_number, vim.log.levels.INFO)
+end
+
+-- Bind the function to a key combination
+vim.keymap.set("n", "<leader>ar", RunGitRemoteInTmuxPane, { desc = "Run `git remote -v` in specified tmux pane" })
+
+local function CopyGitRemote()
+	-- Execute `git remote -v` and capture the output
+	local git_remotes = vim.fn.systemlist("git remote -v")
+	if vim.v.shell_error ~= 0 or #git_remotes == 0 then
+		vim.notify("Failed to get git remotes. Ensure you're in a git repository.", vim.log.levels.ERROR)
+		return
+	end
+
+	-- Extract the URL part (without 'origin', 'fetch', etc.)
+	local remote_url = git_remotes[1]:match("git@[^%s]+")
+	if not remote_url then
+		vim.notify("Failed to extract remote URL.", vim.log.levels.ERROR)
+		return
+	end
+
+	-- Copy the URL to the system clipboard
+	vim.fn.setreg("+", remote_url) -- Copies to the system clipboard
+	vim.notify("Copied git remote: " .. remote_url, vim.log.levels.INFO)
+end
+
+-- Bind the function to <space>ac
+vim.keymap.set("n", "<space>ac", CopyGitRemote, { desc = "Copy git remote URL to clipboard" })
+--
+--
+--
+--
+--
+vim.keymap.set("n", "<leader>pp", function()
+	local package_json_path = vim.fn.findfile("package.json", ".;")
+	if package_json_path ~= "" then
+		vim.cmd("edit " .. package_json_path)
+	else
+		print("No package.json file found in the current project.")
+	end
+end, { noremap = true, silent = true, desc = "Open package.json" })

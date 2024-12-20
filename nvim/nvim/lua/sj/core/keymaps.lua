@@ -36,8 +36,8 @@ vim.api.nvim_set_keymap("n", "<A-l>", ":vertical resize -2<CR>", { noremap = tru
 vim.api.nvim_set_keymap("n", "<A-h>", ":vertical resize +2<CR>", { noremap = true, silent = true })
 --
 -- -- Increase/decrease split height with Alt+j and Alt+k
--- vim.api.nvim_set_keymap("n", "<A-j>", ":resize -2<CR>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "<A-k>", ":resize +2<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Down>", ":resize -2<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Up>", ":resize +2<CR>", { noremap = true, silent = true })
 --
 -- use jk to exit insert mode
 keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jk" })
