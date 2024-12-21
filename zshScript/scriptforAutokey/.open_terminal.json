@@ -1,0 +1,33 @@
+{
+    "type": "script",
+    "description": "open_terminal",
+    "store": {},
+    "modes": [
+        1,
+        3
+    ],
+    "usageCount": 3,
+    "prompt": false,
+    "omitTrigger": false,
+    "showInTrayMenu": false,
+    "abbreviation": {
+        "abbreviations": [
+            "super + t"
+        ],
+        "backspace": true,
+        "ignoreCase": false,
+        "immediate": false,
+        "triggerInside": false,
+        "wordChars": "[\\w]"
+    },
+    "hotkey": {
+        "modifiers": [
+            "<super>"
+        ],
+        "hotKey": "t"
+    },
+    "filter": {
+        "regex": null,
+        "isRecursive": false
+    }
+}

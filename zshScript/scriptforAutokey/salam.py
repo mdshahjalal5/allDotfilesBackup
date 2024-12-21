@@ -1,0 +1,1 @@
+keyboard.send_keys("Assalamu alaikum, Ami shahjalal")
