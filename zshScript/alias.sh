@@ -33,7 +33,7 @@ alias tk='tmux kill-session -t '
 # alias fp="$(tmux ls | fzf | awk '{print $1}' | sed 's/://')"
 # alias ff ="$(  | fzf | awk '{print $1}' | sed 's/://')"
 alias gkk="git init && git add . && git commit -m 'first message' && git branch -M main"
-# alias -g nano="nvim "
+alias -g nano="nvim "
 alias gn='gh gd'
 alias cd="z"
 alias sg="pnpm build  && surge dist"
@@ -44,4 +44,4 @@ alias pd='pnpm dev'
 alias aj='/mnt/fed/web/L1B6UpdatedTo9'
 alias ak='/mnt/fed/web/L2B1'
 alias al='/mnt/fed/web/L2B4'
-
+# 12_Shahjalal_@

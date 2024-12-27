@@ -59,7 +59,14 @@ api.mapkey(
 api.mapkey("so", "discord", function () {
   window.open("https://discord.com/channels/@me", "_blank");
 });
-//
+api.mapkey("ad", "Dotfiles", function () {
+  window.open("https://github.com/mdshahjalal5/allDotfilesBackup", "_blank");
+});
+
+api.mapkey("ay", "youtube opening", function () {
+  window.open("https://www.youtube.com/", "_blank");
+});
+
 //t: Open Quran
 //
 api.mapkey("sq", "Open Quran", function () {
