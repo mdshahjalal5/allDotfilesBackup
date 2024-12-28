@@ -238,6 +238,7 @@ export FZF_DEFAULT_OPTS="
 "
 
 
+export FZF_DEFAULT_OPTS="--bind 'j:down,k:up'"
 #view with fzf any command 
 cf() {
   $@ | fzf

@@ -38,3 +38,7 @@ if vim.g.started_by_firenvim then
 		callback = setup_firenvim,
 	})
 end
+
+-- Map space ak to set lines to 100
+vim.api.nvim_set_keymap("n", "<Space>bk", ":set lines=80<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<Space>bk", ":set lines=100<CR>", { noremap = true, silent = true })
