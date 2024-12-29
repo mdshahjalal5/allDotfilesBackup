@@ -5,7 +5,8 @@ api.mapkey("<ctrl-y>", "Show me the money", function () {
 });
 
 //t: an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
-api.map("gt", "T");
+api.map("gt", "t");
+api.map("t", "T");
 api.map("ss", "on");
 api.map("aa", "S");
 api.map("<Alt-j>", "l");
