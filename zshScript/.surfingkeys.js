@@ -63,11 +63,29 @@ api.mapkey("so", "discord", function () {
 api.mapkey("ad", "Dotfiles", function () {
   window.open("https://github.com/mdshahjalal5/allDotfilesBackup", "_blank");
 });
-
+//
+//
+//
+//
+//
 api.mapkey("ay", "youtube opening", function () {
   window.open("https://www.youtube.com/", "_blank");
 });
-
+//
+//
+//
+//
+api.mapkey("at", "kbi tutorial", function () {
+  window.open("https://github.com/mdshahjalal5/kbi-tutorial", "_blank");
+});
+//
+//
+//
+//
+//
+//
+//
+//
 //t: Open Quran
 //
 api.mapkey("sq", "Open Quran", function () {
@@ -105,13 +123,32 @@ api.mapkey("si", "L2B4Web", function () {
     "_blank",
   );
 });
-//t: outline L2B4
+//t: outline L2B4 https://web.programming-hero.com/web-11/video/web-11-0-1-welcome-message
 api.mapkey("sk", "outline L2B4", function () {
   window.open(
     "https://web.programming-hero.com/66fe345a2037515c16ea6ce7/course-outline",
     "_blank",
   );
 });
+
+//
+//
+//
+//
+//
+//p: level1 batch 11
+api.mapkey("ai", "Level1 Batch 11", function () {
+  window.open(
+    "https://web.programming-hero.com/web-11/video/web-11-0-1-welcome-message",
+    "_blank",
+  );
+});
+//
+//
+//
+//
+//
+//
 //t: fbLevel2
 api.mapkey("s2", "fbLevel2", function () {
   window.open("https://www.facebook.com/groups/phapollo4", "_blank");
