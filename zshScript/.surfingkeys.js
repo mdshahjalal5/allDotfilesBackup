@@ -131,7 +131,7 @@ api.mapkey("sk", "outline L2B4", function () {
   );
 });
 
-//
+////
 //
 //
 //
@@ -142,6 +142,18 @@ api.mapkey("ai", "Level1 Batch 11", function () {
     "https://web.programming-hero.com/web-11/video/web-11-0-1-welcome-message",
     "_blank",
   );
+});
+//
+//
+//
+
+//
+//
+//
+//
+//p: level1 batch 11 fb suport group
+api.mapkey("aj", "fb  Level1 Batch 11 support group", function () {
+  window.open("https://www.facebook.com/groups/targetwebdevcareer", "_blank");
 });
 //
 //
