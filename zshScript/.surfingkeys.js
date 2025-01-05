@@ -126,11 +126,24 @@ api.mapkey("si", "L2B4Web", function () {
 //t: outline L2B4 https://web.programming-hero.com/web-11/video/web-11-0-1-welcome-message
 api.mapkey("sk", "outline L2B4", function () {
   window.open(
-    "https://web.programming-hero.com/66fe345a2037515c16ea6ce7/course-outline",
+    "https://web.programming-hero.com/676fa61320dff5186afcd780/course-outline",
     "_blank",
   );
 });
-
+//
+//
+//p: coceptual level1 batch 9
+api.mapkey("ae", "Conceptual Level1 Batch 9", function () {
+  window.open("https://web.programming-hero.com/conceptual-session", "_blank");
+});
+//
+//
+//
+//
+//p: coceptual level1 batch 11
+api.mapkey("ac", "Conceptual Level1 Batch 11", function () {
+  window.open("https://web.programming-hero.com/conceptual-session", "_blank");
+});
 ////
 //
 //
@@ -146,7 +159,16 @@ api.mapkey("ai", "Level1 Batch 11", function () {
 //
 //
 //
-
+//
+//
+//
+//p: outline level1 batch 11
+api.mapkey("ak", "outline level1 batch 11", function () {
+  window.open(
+    "https://web.programming-hero.com/675439d776a088463223e16d/course-outline",
+    "_blank",
+  );
+});
 //
 //
 //
@@ -189,9 +211,17 @@ api.mapkey("sr", "redux", function () {
 api.mapkey("sc", "Open chatgpt", function () {
   window.open("https://chatgpt.com/", "_blank");
 });
-
+//
+//
+//
+//
+//
+//
+//t: open  claude ai
+api.mapkey("al", "Open claude ai", function () {
+  window.open("https://claude.ai/new");
+});
 //t: github repository page opening
-
 api.mapkey("gr", "Repository Github", function () {
   window.open("https://github.com/mdshahjalal5?tab=repositories", "_blank");
 });
@@ -338,3 +368,34 @@ settings.theme = `
     background: #1e1e2e; /* Base */
     color: #cdd6f4; /* Text */
 }`;
+
+// Reload the left tab
+api.mapkey("yr", "Reload the tab to the left of current tab", function () {
+  // Get current tab to find its index
+  chrome.tabs.query(
+    { active: true, currentWindow: true },
+    function (currentTab) {
+      if (currentTab.length === 0) return;
+
+      const currentIndex = currentTab[0].index;
+
+      // Only proceed if we're not on the leftmost tab
+      if (currentIndex > 0) {
+        // Query for the tab to the left
+        chrome.tabs.query(
+          { currentWindow: true, index: currentIndex - 1 },
+          function (tabs) {
+            if (tabs.length > 0) {
+              // Reload the left tab
+              chrome.tabs.reload(tabs[0].id);
+              // Show a confirmation banner
+              api.Front.showBanner("Reloaded left tab");
+            }
+          },
+        );
+      } else {
+        api.Front.showBanner("No tab to the left!");
+      }
+    },
+  );
+});
