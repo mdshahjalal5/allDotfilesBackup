@@ -2,7 +2,13 @@
 vim.api.nvim_set_keymap("i", "jsv", "<Esc>:vsplit<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "jsh", "<Esc>:split<CR>", { noremap = true, silent = true })
 -- save file with kk while in insert mode
-vim.api.nvim_set_keymap("i", "kk", "<Esc>:w<CR>a", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("i", "kk", "<Esc>:w<CR>a", { noremap = true, silent = true })
+-- Map kk to backspace in insert mode
+vim.api.nvim_set_keymap("i", "kk", "<BS>", { noremap = true, silent = true })
+
+-- Map kj to delete the character under the cursor in insert mode
+vim.api.nvim_set_keymap("i", "jk", "<Del>", { noremap = true, silent = true })
+
 --t: Map Ctrl + z to undo
 vim.api.nvim_set_keymap("i", "<C-z>", "<C-o>u", { noremap = true, silent = true })
 -- Map Ctrl + b to redo (using Ctrl + o then Ctrl + r)
