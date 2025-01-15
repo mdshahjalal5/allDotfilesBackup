@@ -4,8 +4,19 @@ api.mapkey("<ctrl-y>", "Show me the money", function () {
   );
 });
 
+api.mapkey("ax", "Open DevTools", function () {
+  // Using Chrome's DevTools API to open the panel
+  chrome.devtools && chrome.devtools.panels.create();
+
+  // As fallback, we can also use the standard keyboard shortcut
+  const isMac = /Mac/.test(navigator.platform);
+  const devToolsKey = isMac ? "{meta-alt-i}" : "{ctrl-shift-i}";
+  api.Front.pressKeys(devToolsKey);
+});
+
 //t: an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
 api.map("gt", "t");
+api.map("w", "d");
 api.map("t", "T");
 api.map("ss", "on");
 api.map("aa", "S");

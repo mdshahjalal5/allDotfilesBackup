@@ -217,9 +217,11 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, silent = true }
 )
 --w: 29/11/2024 06:43 PM Fri GMT+6 Sharifpur, Gazipur, Dhaka
--- Map 'sj' to run the HopChar2 command
--- vim.api.nvim_set_keymap("n", "sj", ":HopChar1<CR>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "i", "x", "t", "o" }, "f", "<Cmd>HopChar1<CR>", { noremap = true, silent = true })
+-- by go starting of the line and press a space
+vim.keymap.set("n", "I", "I <Left>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "I", "I ", { noremap = true, silent = true })
+
 vim.keymap.set("i", "<S-f>", "f", { noremap = true, silent = true })
 vim.keymap.set("i", "<S-f><S-f>", "F", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "sk", ":HopChar2<CR>", { noremap = true, silent = true })

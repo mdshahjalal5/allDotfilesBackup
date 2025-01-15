@@ -48,8 +48,8 @@ keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jk" })
 vim.api.nvim_set_keymap("n", "<A-o>", ":Telescope live_grep<CR>", { noremap = true, silent = true })
 
 -- Map Alt+i to :wqa! in normal mode
-vim.api.nvim_set_keymap("n", "<M-i>", ":wqa!<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<M-i>", "<ESC>:wqa!<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<M-i>", ":qa!<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<M-i>", "<ESC>:qa!<CR>", { noremap = true, silent = true })
 
 --for formatting indent like vs code
 vim.api.nvim_set_keymap(
@@ -75,3 +75,8 @@ vim.keymap.set("i", "jkk", function()
 end, { silent = true, desc = "Go to last visited file" })
 vim.keymap.set("n", "<Space>jk", "<C-^>", { silent = true, desc = "Go to last visited file" })
 vim.keymap.set("i", "ii", "<ESC><C-^>", { silent = true, desc = "Go to last visited file" })
+
+vim.keymap.set({ "n", "x", "o" }, "<C-f3>", "<C-^>", {
+	silent = true,
+	desc = "Go to last visited file",
+})

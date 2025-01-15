@@ -42,3 +42,6 @@ end
 -- Map space ak to set lines to 100
 vim.api.nvim_set_keymap("n", "<Space>bk", ":set lines=80<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<Space>bk", ":set lines=100<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "<space>ss", [[:!xdg-open %<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<space>ss", [[<Esc>:!xdg-open %<CR>]], { noremap = true, silent = true })

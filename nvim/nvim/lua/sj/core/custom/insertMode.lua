@@ -1,8 +1,7 @@
--- vim.keymap.set('i', '<C-j>', 'j', { silent = true })
 vim.api.nvim_set_keymap("i", "jsv", "<Esc>:vsplit<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "jsh", "<Esc>:split<CR>", { noremap = true, silent = true })
 -- save file with kk while in insert mode
--- vim.api.nvim_set_keymap("i", "kk", "<Esc>:w<CR>a", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("i", "ll", "<Esc>:w<CR>a", { noremap = true, silent = true })
 -- Map kk to backspace in insert mode
 vim.api.nvim_set_keymap("i", "kk", "<BS>", { noremap = true, silent = true })
 
@@ -50,7 +49,7 @@ vim.api.nvim_set_keymap("i", "<Esc>", "<Esc>:w!<CR>", { noremap = true, silent =
 --
 --
 --t: console.log by  space sc
---t: ConsoleLogVariable
+--t: Console Log Variable
 vim.api.nvim_set_keymap("n", "<space>sc", ":lua ConsoleLogVariable()<CR>", { noremap = true, silent = true })
 
 function ConsoleLogVariable()
