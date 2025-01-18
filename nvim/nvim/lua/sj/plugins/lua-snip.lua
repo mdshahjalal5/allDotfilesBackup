@@ -69,6 +69,12 @@ return {
 					}),
 				}),
 			})
+
+			--
+			--
+			--
+			-- --
+			--
 			-- Optional: You might want these options
 			ls.config.set_config({
 				history = true,
