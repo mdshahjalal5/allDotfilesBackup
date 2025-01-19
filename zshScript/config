@@ -1,0 +1,15 @@
+
+[general]
+home_row_keys=qwertcm,ugi
+[mode_tile]
+label_color=#fffd
+label_select_color=#fd0d
+unselectable_bg_color=#2226
+selectable_bg_color=#0304
+selectable_border_color=#040c
+label_font_family=sans-serif
+
+[mode_bisect]
+label_color=#fffd
+label_font_size=20
+label_font_family=sans-serif

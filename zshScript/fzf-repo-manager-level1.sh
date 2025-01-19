@@ -1,7 +1,7 @@
 
  # fzf-based GitHub repo manager
 #
-  gh repo list ProgrammingHero1  --json name --jq '.[].name' --limit 200 | \
+  gh repo list ProgrammingHero1  --json name --jq '.[].name' --limit 2200 | \
   fzf --prompt="Select a repo: " --height=80% \
       --preview="gh repo view ProgrammingHero1/{}" --preview-window=right:60% \
       --bind "enter:execute-silent(echo -n {} | xclip -selection clipboard)" \

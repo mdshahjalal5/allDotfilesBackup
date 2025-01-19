@@ -25,6 +25,6 @@ vim.keymap.set("i", "<C-e>", "<C-o><C-e>", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-y>", "<C-o><C-y>", { noremap = true, silent = true })
 
 -- Scroll up with 'w' in normal mode
-vim.api.nvim_set_keymap("n", "w", "<C-y>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "w", "<C-y>", { noremap = true, silent = true })
 -- Scroll down with 'e' in normal mode
-vim.api.nvim_set_keymap("n", "e", "<C-e>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "e", "<C-e>", { noremap = true, silent = true })
