@@ -11,7 +11,6 @@ function backup_and_git_push()
 	vim.fn.system("cp -r /etc/keyd " .. backup_dir .. "/keyd")
 	vim.fn.system("cp -r ~/.config/yazi " .. backup_dir .. "/yazi")
 	vim.fn.system("cp -r /mnt/fed/zshScript " .. backup_dir)
-	vim.fn.system("cp -r /home/sj/.config/hypr/hyprland.conf " .. backup_dir .. "/hypr")
 	vim.fn.system("cp -r  " .. backup_dir)
 
 	-- Prompt for the Git commit message

@@ -1,5 +1,6 @@
 #clear pane with c-v 
 
+
 function clear_terminal() {
   clear  # This is the regular clear command
 }
